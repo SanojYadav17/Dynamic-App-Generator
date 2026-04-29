@@ -3,17 +3,6 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_API_URL": {
-      "description": "API URL for frontend requests"
-    }
-  },
-  "functions": {
-    "src/app/api/**": {
-      "memory": 1024,
-      "maxDuration": 30
-    }
-  },
   "git": {
     "deploymentEnabled": {
       "main": true
