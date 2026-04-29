@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model WorkspaceRun {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  configJson String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}

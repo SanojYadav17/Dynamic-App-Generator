@@ -1,0 +1,90 @@
+{
+  "slug": "ai-signal-platform",
+  "title": "AI Signal Platform Builder",
+  "subtitle": "Generate internal tools from structured configuration without hardcoding every screen.",
+  "theme": {
+    "accent": "#0ea5e9",
+    "accentSecondary": "#f97316",
+    "surface": "#f7f4ee"
+  },
+  "metrics": [
+    { "label": "Generated screens", "value": "14", "delta": "+3 this week" },
+    { "label": "API routes", "value": "8", "delta": "config-driven" },
+    { "label": "Database readiness", "value": "PostgreSQL", "delta": "Prisma schema included" }
+  ],
+  "forms": [
+    {
+      "id": "workspace-create",
+      "title": "Create workspace",
+      "description": "Provision a new generated app from the supplied JSON config.",
+      "submitLabel": "Generate app",
+      "fields": [
+        { "name": "workspaceName", "label": "Workspace name", "type": "text", "placeholder": "Signal Ops" },
+        { "name": "ownerEmail", "label": "Owner email", "type": "email", "placeholder": "sanoj@example.com" },
+        { "name": "isPublic", "label": "Public preview", "type": "checkbox" }
+      ]
+    },
+    {
+      "id": "auth-signin",
+      "title": "Demo auth",
+      "description": "Basic sign-in flow for the generated app.",
+      "submitLabel": "Sign in",
+      "fields": [
+        { "name": "email", "label": "Email", "type": "email", "placeholder": "demo@company.com" },
+        { "name": "password", "label": "Password", "type": "password", "placeholder": "••••••••" }
+      ]
+    },
+    {
+      "id": "auth-signup",
+      "title": "Create account",
+      "description": "Config-driven signup form.",
+      "submitLabel": "Sign up",
+      "fields": [
+        { "name": "email", "label": "Email", "type": "email", "placeholder": "new@company.com" },
+        { "name": "password", "label": "Password", "type": "password", "placeholder": "minimum 4 chars" }
+      ]
+    },
+    {
+      "id": "auth-otp",
+      "title": "OTP login",
+      "description": "Request OTP and verify using the same form. Demo OTP is 123456.",
+      "submitLabel": "Verify OTP",
+      "fields": [
+        { "name": "email", "label": "Email", "type": "email", "placeholder": "demo@company.com" },
+        { "name": "otp", "label": "OTP", "type": "text", "placeholder": "123456" }
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "id": "applications",
+      "title": "Generated applications",
+      "columns": [
+        { "key": "name", "label": "App name" },
+        { "key": "status", "label": "Status" },
+        { "key": "owner", "label": "Owner" },
+        { "key": "updatedAt", "label": "Updated" }
+      ],
+      "rows": [
+        { "name": "Ops Dashboard", "status": "Live", "owner": "Product", "updatedAt": "2h ago" },
+        { "name": "Recruitment Hub", "status": "Preview", "owner": "HR", "updatedAt": "1d ago" },
+        { "name": "Support Console", "status": "Live", "owner": "Support", "updatedAt": "4d ago" }
+      ]
+    }
+  ],
+  "sections": [
+    { "type": "hero", "title": "Config-first app generation", "body": "Render working screens from structured JSON and keep the runtime resilient when config is incomplete." },
+    { "type": "metrics", "title": "System health" },
+    { "type": "forms", "title": "Dynamic forms" },
+    { "type": "tables", "title": "Data tables" },
+    { "type": "roadmap", "title": "Edge cases handled", "items": ["Missing fields", "Unknown component types", "Schema mismatches", "Loading and error states"] }
+  ],
+  "auth": {
+    "mode": "multi-method",
+    "methods": ["password", "otp"],
+    "demoUser": {
+      "email": "demo@company.com",
+      "password": "demo1234"
+    }
+  }
+}
